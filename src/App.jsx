@@ -14,11 +14,13 @@ export default function App() {
       temp: 0,
       humidity: 0
     }
-  );
+  );  
+  
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   
   useEffect(() => {
+    document.title = 'Smart City Monitoring | POLIJE - KNU';
     getTemp();
   } , []);
   useEffect(() => {
@@ -52,7 +54,7 @@ export default function App() {
   }
 
   return (    
-    <>               
+    <>                   
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden dark:bg-gray-900 py-6 px-12 sm:py-12">
       <span className="absolute top-20 left-6 inline-block h-96 w-96 rounded-full bg-[#ff8e8e] mix-blend-multiply blur-2xl animate-blob2 animation-delay-2000"></span>
       <span className="absolute top-40 -left-10 inline-block h-80 w-80 rounded-full bg-[#86fff7] mix-blend-multiply blur-2xl animate-blob animation-delay-4000"></span>
