@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react"
 import {Card} from "./components/Card";
+import { Preloader } from "./components/Preloader";
 import { bgColor } from "./data/BgColor";
 
 
 
 export default function App() {
   const API_ENDPOINT = "https://adminbempolije.com"
-  const date = new Date().toLocaleDateString();
-  console.log(date);
+    // date now to localstring
   const [temp, setTemp] = useState(
     {
       temp: 0,
@@ -17,10 +17,15 @@ export default function App() {
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
+  
   useEffect(() => {
     getTemp();
-  }, [temp]);
+  } , []);
+  useEffect(() => {
+    const interval = setInterval(getTemp, 10000);
+    return () => clearInterval(interval)  ;
+  } , [temp]);
+
 
 
 
@@ -30,12 +35,16 @@ export default function App() {
     fetch(`${API_ENDPOINT}/api/temp` || "https://adminbempolije.com/api/temp")
       .then(res => res.json())
       .then(data => {
-        setIsLoading(false);
+        setInterval(() => {
+          setIsLoading(false);
+        }, 5000);
         setTemp(temp => ({
           ...temp,
           temp: data.temp,
-          humidity: data.humidity
+          humidity: data.humidity,
+          total_car: data.total_car
         }));
+        console.log(data);
       })
       .catch(() => {
         setIsError(true);
@@ -43,6 +52,7 @@ export default function App() {
   }
 
   return (    
+    <>               
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden dark:bg-gray-900 py-6 px-12 sm:py-12">
       <span className="absolute top-20 left-6 inline-block h-96 w-96 rounded-full bg-[#ff8e8e] mix-blend-multiply blur-2xl animate-blob2 animation-delay-2000"></span>
       <span className="absolute top-40 -left-10 inline-block h-80 w-80 rounded-full bg-[#86fff7] mix-blend-multiply blur-2xl animate-blob animation-delay-4000"></span>
@@ -58,8 +68,9 @@ export default function App() {
       <div className="flex justify-between items-center flex-col md:flex-row ">        
         <Card bgColor={bgColor.blue} title={"Humidity"} value={temp?.humidity} symbol={"%"}/>
         <Card bgColor={bgColor.yellow} title={"Temperature"} value={temp?.temp} symbol={"°C"}/>
-        <Card bgColor={bgColor.red} title={"Total Car / Minute"} value={40} symbol={"/ car"}/>
+        <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/>
       </div>
-    </div>
+    </div>          
+    </>
   )
 }

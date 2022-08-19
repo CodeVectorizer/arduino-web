@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Card = ({ bgColor, value,title, symbol }) => {    
+    //   get formatted date from date now to mm/dd/yyyy    
+    const [date, setDate] = useState(new Date().toLocaleDateString());
+    // get formatted time from date now to hh:mm withoout seconds
+    const [time, setTime] = useState(new Date().toLocaleTimeString().slice(0,4));    
+    // update component every 1 minute
+    useEffect(() => {
+        setInterval(() => {
+            setDate(new Date().toLocaleDateString());
+            setTime(new Date().toLocaleTimeString().slice(0,4));
+        }, 60000);
+    } , [time]);
+
+    
+
+
+
+
+
     return (
         <div className={`relative w-11/12 md:w-2/5 bg-gradient-to-t ${bgColor} bg-opacity-25 px-6 my-4 pt-10 pb-8 shadow-xl ring-1 ring-white/5 backdrop-blur-lg backdrop-filter sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10`}>
             <div className="mx-auto max-w-md">
@@ -17,7 +35,7 @@ export const Card = ({ bgColor, value,title, symbol }) => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             <p className="ml-4">
-                                <code className="text-sm text-white  after:h-full after:w-full after:block after:absolute after:inset-0 relative ">{date}</code>
+                                <code className="text-base text-white  after:h-full after:w-full after:block after:absolute after:inset-0 relative ">{date}</code>
                             </p>
                         </li>
                         <li className="flex items-center">
@@ -25,7 +43,7 @@ export const Card = ({ bgColor, value,title, symbol }) => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <p className="ml-4">
-                                <code className="text-sm text-white  after:h-full after:w-full after:block after:absolute after:inset-0 relative ">02:08:00</code>
+                                <code className="text-base text-white  after:h-full after:w-full after:block after:absolute after:inset-0 relative ">{time}</code>
                             </p>
                         </li>
                     </ul>
