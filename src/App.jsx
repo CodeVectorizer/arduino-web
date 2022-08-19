@@ -65,7 +65,7 @@ export default function App() {
         <img src="/polije-logo.png" alt="POLIJE Logo" width={200} height={200} />
         <img src="/knu-logo.jpg" alt="KNU Logo" width={260} height={260} />
       </div>
-      <div className="flex justify-between items-center flex-col md:flex-row ">        
+      <div className="flex justify-between items-center md:space-x-10 space-x-0  flex-col md:flex-row ">        
         <Card bgColor={bgColor.blue} title={"Humidity"} value={temp?.humidity} symbol={"%"}/>
         <Card bgColor={bgColor.yellow} title={"Temperature"} value={temp?.temp} symbol={"°C"}/>
         <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/>
