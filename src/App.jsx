@@ -29,7 +29,7 @@ export default function App() {
   },[]);
   
   useEffect(() => {
-    setInterval(getTemp, 60000);
+    setInterval(getTemp, 3000);
      setInterval(getTemps, 60000);    
   },[]);
 
