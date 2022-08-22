@@ -13,12 +13,6 @@ export const Card = ({ bgColor, value,title, symbol }) => {
         }, 60000);
     } , [time]);
 
-    
-
-
-
-
-
     return (
         <div className={`relative w-11/12 md:w-2/5 bg-gradient-to-t ${bgColor} bg-opacity-25 px-6 my-4 pt-10 pb-8 shadow-xl ring-1 ring-white/5 backdrop-blur-lg backdrop-filter sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10`}>
             <div className="mx-auto max-w-md">
@@ -38,9 +32,7 @@ export const Card = ({ bgColor, value,title, symbol }) => {
                         <div className="h-[60px] w-full animate-pulse rounded-lg mt-10 bg-gray-300 bg-opacity-40"></div>
                     )
 
-                }
-                
-                
+                }                            
                     <ul className="space-y-4 py-10">
                         <li className="flex items-center">
                             
@@ -55,7 +47,7 @@ export const Card = ({ bgColor, value,title, symbol }) => {
                                 </>
                                 ) : (
                                     <>
-                                    <span className='h-[24px] w-[24px] bg-gray-300 opacity-30 animate-pulse'></span>
+                                    <span className='h-[24px] w-[24px] bg-gray-300 opacity-30 animate-pulse rounded-lg'></span>
                                 <p className='ml-4 h-[25px] w-full bg-gray-300 bg-opacity-30 animate-pulse rounded-lg'></p>
                                 </>
                             )}
@@ -73,13 +65,12 @@ export const Card = ({ bgColor, value,title, symbol }) => {
                                 </>
                                 ) : (
                                     <>
-                                    <span className='h-[24px] w-[24px] bg-gray-300 opacity-30 animate-pulse'></span>
+                                    <span className='h-[24px] w-[24px] bg-gray-300 opacity-30 animate-pulse rounded-lg'></span>
                                 <p className='ml-4 h-[25px] w-full bg-gray-300 bg-opacity-30 animate-pulse rounded-lg'></p>
                                 </>
                             )}
                         </li>
-                    </ul>
-                    
+                    </ul>                    
             </div>
         </div>
     )
