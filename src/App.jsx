@@ -3,6 +3,7 @@ import { useState } from "react"
 import {Card} from "./components/Card";
 import { Chart } from "./components/Chart";
 import { Preloader } from "./components/Preloader";
+import { ThreeD } from "./components/ThreeD";
 import { bgColor } from "./data/BgColor";
 
 
@@ -26,7 +27,6 @@ export default function App() {
     document.title = 'Smart City Monitoring | POLIJE - KNU';
     getTemp();
     getTemps();
-
   },[]);
   
   useEffect(() => {
@@ -107,8 +107,8 @@ export default function App() {
             </>
           ) : (
             <>
-            <h1 className="w-full text-center text-6xl font-bold">Smart City Monitoring</h1>
-            <h1 className="w-full text-center text-4xl font-medium mt-4 italic">POLIJE - KNU Collaboration</h1>
+            <h1 className="w-full text-center text-gray-800 text-6xl font-bold">Smart City Monitoring</h1>
+            <h1 className="w-full text-center text-gray-800 text-4xl font-medium mt-4 italic">POLIJE - KNU Collaboration</h1>
             <img src="/polije-logo.png" alt="POLIJE Logo" width={200} height={200} />
             <img src="/knu-logo.jpg" alt="KNU Logo" width={260} height={260} />
             </>
@@ -119,7 +119,7 @@ export default function App() {
       <div className="flex justify-between items-center flex-col md:flex-row gap-6 flex-wrap">        
         <Card bgColor={bgColor.blue} title={"Humidity"} value={temp?.humidity} symbol={"%"}/>
         <Card bgColor={bgColor.yellow} title={"Temperature"} value={temp?.temp} symbol={"°C"}/>
-        <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/>
+        {/* <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/> */}
       </div>
 
         <Chart dataset={dataset} />
@@ -127,6 +127,7 @@ export default function App() {
       <span className="absolute bottom-40 right-0 inline-block h-48 w-48 rounded-full bg-[#86fff7] mix-blend-multiply blur-2xl z-0 animate-blob animation-delay-4000"></span>
       <span className="absolute bottom-20 left-6 inline-block h-60 w-60 rounded-full bg-[#edff75] mix-blend-multiply blur-2xl z-0 animate-blob animation-delay-3000"></span>
       <span className="absolute bottom-60 -left-10 inline-block h-48 w-48 rounded-full bg-[#7d84ff] mix-blend-multiply blur-2xl z-0 animate-blob2 animation-delay-2000 "></span>
+      <ThreeD/>
     </div>          
     </>
   )
