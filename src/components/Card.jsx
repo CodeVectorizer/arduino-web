@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 export const Card = ({ bgColor, value,title, symbol }) => {    
     //   get formatted date from date now to mm/dd/yyyy    
-    const [date, setDate] = useState(new Date().toLocaleDateString());
+    const [date, setDate] = useState(new Date().toDateString());
     // get formatted time from date now to hh:mm withoout seconds
-    const [time, setTime] = useState(new Date().toLocaleTimeString().slice(0,4));    
+    const [time, setTime] = useState(new Date().toTimeString().slice(0,5));    
     // update component every 1 minute
     useEffect(() => {
         setInterval(() => {
-            setDate(new Date().toLocaleDateString());
-            setTime(new Date().toLocaleTimeString().slice(0,4));
+            setDate(new Date().toDateString());
+            setTime(new Date().toTimeString().slice(0,5));
         }, 60000);
     } , [time]);
 
