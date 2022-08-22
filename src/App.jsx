@@ -118,7 +118,7 @@ export default function App() {
       <div className="flex justify-between items-center flex-col md:flex-row gap-6 flex-wrap">        
         <Card bgColor={bgColor.blue} title={"Humidity"} value={temp?.humidity} symbol={"%"}/>
         <Card bgColor={bgColor.yellow} title={"Temperature"} value={temp?.temp} symbol={"°C"}/>
-        {/* <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/> */}
+        <Card bgColor={bgColor.red} title={"Total Car / Minute"}  value={temp?.total_car} symbol={"/ car"}/>
       </div>
 
         <Chart dataset={dataset} />
