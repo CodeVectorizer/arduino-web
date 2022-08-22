@@ -125,8 +125,7 @@ export default function App() {
         <span className="absolute bottom-20 right-6 inline-block h-60 w-60 rounded-full bg-[#ff8e8e] mix-blend-multiply blur-2xl z-0 animate-blob2 animation-delay-2000"></span>
       <span className="absolute bottom-40 right-0 inline-block h-48 w-48 rounded-full bg-[#86fff7] mix-blend-multiply blur-2xl z-0 animate-blob animation-delay-4000"></span>
       <span className="absolute bottom-20 left-6 inline-block h-60 w-60 rounded-full bg-[#edff75] mix-blend-multiply blur-2xl z-0 animate-blob animation-delay-3000"></span>
-      <span className="absolute bottom-60 -left-10 inline-block h-48 w-48 rounded-full bg-[#7d84ff] mix-blend-multiply blur-2xl z-0 animate-blob2 animation-delay-2000 "></span>
-      <ThreeD/>
+      <span className="absolute bottom-60 -left-10 inline-block h-48 w-48 rounded-full bg-[#7d84ff] mix-blend-multiply blur-2xl z-0 animate-blob2 animation-delay-2000 "></span>      
     </div>          
     </>
   )
