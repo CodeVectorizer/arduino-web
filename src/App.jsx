@@ -3,7 +3,6 @@ import { useState } from "react"
 import {Card} from "./components/Card";
 import { Chart } from "./components/Chart";
 import { Preloader } from "./components/Preloader";
-import { ThreeD } from "./components/ThreeD";
 import { bgColor } from "./data/BgColor";
 
 
